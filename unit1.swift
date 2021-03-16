@@ -1,4 +1,5 @@
-func bubblesort(_ test : inout[Int])-> [Int] {   //氣泡排序法
+func bubblesort(_ test : inout [Int])-> [Int] {   //氣泡排序法  
+//<-inout.jpg
     var temp:Int
     for _ in 0...test.count{
     for count in 0...test.count-2{   
@@ -71,5 +72,109 @@ for code in str.unicodeScalars {  //存取Unicode純量,重複str的字串長度
 }    
 count+=1
 }
+
+var zoo:Set = ["大老鷹","小烏龜","長頸鹿"]   //Set集合 沒有索引值,無法重複
+
+if zoo.contains("大老鷹"){       //boooooooooooooooooooooooooooooooooooooooooooolean
+    print("老鷹很大")
+}
+zoo.insert("眼鏡沒有蛇")
+
+var  Eric : [ String : Any] = [     //字典,自訂索引值
+    "髮色" :"黑色",
+    "身高" :174,
+    "體重" :73
+]
+
+var nums = [[Int]]()  //二維陣列
+
+nums.append([1,2,3]) 
+
+nums.append([4,5,6,7,8,9])
+
+print(nums[0][1])
+
+
+public struct Array2D<T> {
+  public let columns: Int
+  public let rows: Int
+  private var array: [T]
+
+  public init(columns: Int, rows: Int, initialValue: T) {
+    self.columns = columns
+    self.rows = rows
+    array = .init(repeating: initialValue, count: rows*columns)
+  }
+
+  public subscript(column: Int, row: Int) -> T {
+    get {
+      return array[row*columns + column]
+    }
+    set {
+      array[row*columns + column] = newValue
+    }
+  }
+}
+func addTen(number: Int) -> Int {
+    let n = number + 10
+    return n
+}
+//var mathFunction: (Int) -> Int = addTen  //  使用函式型別宣告
+
+
+func addTwoInts(_ number1:Int,_ number2:Int) ->Int{
+    return number1+number2
+}
+func printMathResult(
+    _ mathFunction:(Int,Int)->Int ,_ a:Int,_ b:Int){   
+    print("Result:\(mathFunction(a,b))")
+}
+printMathResult(addTwoInts,3,5)
+
+
+func stepForward(input:Int)->Int{      //global
+    return input+1
+}
+func stepBackward(input:Int)->Int{
+    return input-1
+}
+
+func chooseStepFunction(_ backwards:Bool)->(Int)->Int{
+    func stepForward(input:Int)->Int{           //nested
+    return input+1
+}
+func stepBackward(input:Int)->Int{
+    return input-1
+}
+    return backwards ? stepBackward : stepForward
+}
+
+let number3=3
+let someFunction2 = chooseStepFunction(number3 < 0)
+print(someFunction2(10))
+
+printMathResult({(number1:Int,number2:Int)->Int in 
+
+return number1+number2
+},12,85)
+
+
+/*let  names=["Chris","Alex","Ewa","Barry","Daniel"]
+
+var reversed = sort(names,{(s1:String,s2:String)->Bool in
+            return s1>s2}
+            )*/
+    
+
+    
+
+             
+                
+
+
+
+
+
+
 
 
