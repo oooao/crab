@@ -1,4 +1,4 @@
-func bubblesort(_ test : inout [Int])-> [Int] {   //氣泡排序法  
+func bubblesort(test : inout [Int])-> [Int] {   //氣泡排序法  
 //<-inout.jpg
     var temp:Int
     for _ in 0...test.count{
@@ -14,7 +14,7 @@ func bubblesort(_ test : inout [Int])-> [Int] {   //氣泡排序法
     return test
     }
 var test1=[99,88,44,55,77,66,33,22,11]
-print(bubblesort(&test1)) // {11,22,33,44,55,66,77,88,99}
+print(bubblesort(test:&test1)) // {11,22,33,44,55,66,77,88,99}
 
   
 func minMax(array:[Int])->(min:Int,max:Int){ //取最大最小
@@ -73,10 +73,23 @@ for code in str.unicodeScalars {  //存取Unicode純量,重複str的字串長度
 count+=1
 }
 
+var arr7=["test1","test2","test3"]
+for (index, value) in arr7.enumerated() {
+    print("Item \(index + 1): \(value)")
+}
+
+
+var someset : Set<Int>=[10,20,30,40]
+    
+    print(someset.count)
+    print(someset.isEmpty)
+    someset=[50,40,30,20,10]
+
+
 var zoo:Set = ["大老鷹","小烏龜","長頸鹿"]   //Set集合 沒有索引值,無法重複
 
 if zoo.contains("大老鷹"){       //boooooooooooooooooooooooooooooooooooooooooooolean
-    print("老鷹很大")
+    print("big eagle")
 }
 zoo.insert("眼鏡沒有蛇")
 
@@ -153,15 +166,21 @@ let number3=3
 let someFunction2 = chooseStepFunction(number3 < 0)
 print(someFunction2(10))
 
-printMathResult({(number1:Int,number2:Int)->Int in 
+printMathResult({number1:Int,number2:Int in 
 
 return number1+number2
 },12,85)
 
 
+
+
+
+
+
+
 /*let  names=["Chris","Alex","Ewa","Barry","Daniel"]
 
-var reversed = sort(names,{(s1:String,s2:String)->Bool in
+var reversed = sorted(names,{(s1:String,s2:String)->Bool in
             return s1>s2}
             )*/
     
